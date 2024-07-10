@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nodedemo
+  name: nodedemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodedemo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodedemo
+    spec:
+      containers:
+      - image: anjum1234/node-hello:latest
+        name: flaskdemo
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-service
+  labels:
+    app: node-service
+spec:
+  type: NodePort
+  ports:
+  - nodePort: 3000
+    port: 80
+    targetPort: 5000
+  selector:
+    app: nodedemo
