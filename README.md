@@ -1,2 +1,2 @@
-# App-Manifest-
-node-js-App-Manifest-
+# Node.js-App-Manifest-
+it container deployment.yaml and corresponding service.yaml manifests
